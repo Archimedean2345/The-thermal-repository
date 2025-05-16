@@ -1,2 +1,4 @@
-# rocket-simulator
-Rocket simulator for high power rocketry
+# Propulsion repository
+Repository for:
+1. Literature in propulsion, thermodynamics & heat transfer
+2. Tools for designing Rocket motors and gas turbines (turbojets-fans)
