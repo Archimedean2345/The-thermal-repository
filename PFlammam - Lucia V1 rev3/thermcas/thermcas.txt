@@ -1,0 +1,46 @@
+THERMCAS.EXE  (DOS Executable program)						Version 1.00 (1-00)
+Motor Casing Thermal Analysis for Amateur Rockets						by R.A.Nakka
+					
+						
+The purpose of the THERMCAS program is to calculate the temperature distribution through the thickness						
+of a rocket motor casing wall. The casing may be insulated or non-insulated, as specified by the user.						
+The analysis technique utilized by this program is similar to the Schmidt method, detailed in Rocket Propulsion						
+Elements (G.Sutton), 4th ed.						
+
+Heating of the casing wall occurs during combustion and is primarily due to convective heat transfer.						
+The program requires as part of the input various properties associated with the combustion and flow						
+process. Specifically, the convection coefficient may be calculated using THERMCAS.XLS for input into	
+the THERMCAS program.	
+
+Thermal properties of the material used for both the casing and the insulation are required as input data.	
+These properties are provided in THERMCAS.XLS for some of the more common materials that may	
+be used for this purpose.	
+
+Output of the THERMCAS program is in the form of a text file (THERM.OUT), in the form of a matrix	
+indicating the temperature at 11 "nodes" through the thickness of the casing wall. Since the heating	
+process is a transient one, this temperature profile is given at various time increments, based upon	
+the total analysis time duration specified by the user. For convenience and for visual aid in interpreting	
+the output, the contents of the output file may be easily plotted in THERMCAS.XLS. This is accomplished	
+by opening the output file in EXCEL and performing a simple "copy and paste" of the output data into	
+the specifed range of cells.	
+
+Important notes:	
+
+1) When using THERMCAS to calculate wall temperatures in a material with a low thermal conductivity, 
+and a thick wall, the program may not run successfully. The reason is that the temperature gradient
+through the full wall thickness is very large. This problem can be overcome by specifying a reduced
+thickness. For example, if the material is PVC with a wall thickness of 7 mm, try using a value of
+2 mm for the material thickness. If required, the temperature in the remaining thickness can be
+estimated by extrapolation.
+
+2) The thickness of the insulation, specified by the user, is "idealized" by the program, and may not match
+exactly the specified value. This is due to the process whereby the material is divided into finite
+thickness "slabs" by the analysis routine, the number of which is rounded to the nearest integer.
+For reference, the idealized thickness is printed to the screen during execution of the program.
+
+3) Generally, this program was written to cater to short burn times. However, longer duration analyses
+may be performed by running the program more than once, using a sequence of shorter duration steps.
+To facilitate this, the user is allowed to specify the starting time associated with each analysis step, as
+well as the initial temperature of the casing. For example,  an analysis totalling 5 seconds may be 
+accomplished by running THERMCAS five times, each of 1 second duration. After each run, the wall
+temperature of the previous run is input as the initial wall temperature.
