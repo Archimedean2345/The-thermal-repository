@@ -1,7 +1,5 @@
-# Propulsion repository
-Repository for:
-1. Literature in propulsion, thermodynamics & heat transfer
-2. Tools for designing Rocket motors and gas turbines (turbojets-fans)
+# Replicante SRM
+This section aims to serve those interested in the design and manufacturing of a solid propellant motor with low-cost and accessible materials, and along the way explain and help understand the knowledge and fundamentals to build it from scratch.
 
-# Usefull Websites
-1. https://engineering.purdue.edu/~propulsi/propulsion/index.html
+Navigation of this section:
+1. 
