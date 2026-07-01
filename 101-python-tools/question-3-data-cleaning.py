@@ -121,3 +121,23 @@ plt.legend()
 plt.xticks(rotation=45)
 plt.tight_layout()
 plt.show()
+
+fig, ax1 = plt.subplots(figsize=(10, 6))
+
+# Left axis - Power
+ax1.set_xlabel("Date")
+ax1.set_ylabel("Power Output (kW)", color="blue")
+ax1.plot(clean_interp["date"], clean_interp["power_kw"], 
+         marker="o", color="blue", label="Power (kW)")
+ax1.tick_params(axis="y", labelcolor="blue")
+
+# Right axis - Temperature (shares same x axis)
+ax2 = ax1.twinx()
+ax2.set_ylabel("Ambient Temperature (°C)", color="red")
+ax2.plot(clean_interp["date"], clean_interp["ambient_temp"], 
+         marker="s", color="red", label="Ambient Temp (°C)")
+ax2.tick_params(axis="y", labelcolor="red")
+
+plt.title("Test Bed Performance — Power vs Ambient Temperature")
+fig.tight_layout()
+plt.show()
