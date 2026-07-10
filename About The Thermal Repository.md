@@ -19,7 +19,4 @@ The latest motor is "Replicante", an easy-to-manufacture SRM for academic purpos
 
 The next step is Ignis, pretends to develop and manufacture the second liquid fuel engine in México. This program is going to be developed on 2026 and leave the engine for forward studies for the team.
 
-# Current team of Propulsion Systems
-Leonardo Valadez, Lead Engineer
-Santiago Méndez, Simulation Specialist 
 
