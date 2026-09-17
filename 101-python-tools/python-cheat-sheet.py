@@ -4,6 +4,104 @@
 # ═══════════════════════════════════════════════════════════════
 
 # ─────────────────────────────────────────────────────────────
+# 0. USER INTERACTION
+# How to select interpreter in VSC?
+# Press Ctrl + Shift + P -> select interpretar use baseline or the most updated version
+# If is not working override JSON file type Preferences: Open User Settings (JSON) → press Enter
+# Look for any line containing "python.defaultInterpreterPath" or "python.pythonPath" — tell me what it says (or if it's not there at all)
+# ─────────────────────────────────────────────────────────────
+# ==== PYTHON USER INTERACTION CHEAT SHEET ====
+
+# --- Output ---
+print("Hello")
+print("A", "B", sep="-")          # A-B
+print("no newline", end="")
+print(f"Value: {x}")
+
+# --- Input ---
+name = input("Name: ")
+age = int(input("Age: "))
+
+# --- Validated int input ---
+def get_int(prompt):
+    while True:
+        try: return int(input(prompt))
+        except ValueError: print("Invalid integer.")
+
+# --- Validated choice ---
+def get_choice(prompt, options):
+    while True:
+        c = input(prompt).strip().lower()
+        if c in options: return c
+        print(f"Choose: {', '.join(options)}")
+
+# --- Yes/No confirm ---
+def confirm(prompt="Sure? (y/n): "):
+    return input(prompt).strip().lower() in ("y", "yes")
+
+# --- Simple menu ---
+def menu():
+    opts = {"1": ("List", list_items), "2": ("Add", add_item), "3": ("Exit", None)}
+    while True:
+        for k, v in opts.items(): print(f"{k}. {v[0]}")
+        c = input("> ").strip()
+        if c == "3": break
+        if c in opts: opts[c][1]()
+        else: print("Invalid.")
+
+# --- CLI args (argparse) ---
+import argparse
+p = argparse.ArgumentParser()
+p.add_argument("filename")
+p.add_argument("-o", "--output", default="out.txt")
+p.add_argument("-v", "--verbose", action="store_true")
+p.add_argument("-n", "--number", type=int, default=1)
+args = p.parse_args()
+
+# --- Progress (no deps) ---
+import time
+for i in range(5):
+    print(f"\r{i+1}/5", end="", flush=True); time.sleep(0.3)
+print()
+
+# --- Progress (tqdm) ---
+from tqdm import tqdm
+for i in tqdm(range(100)): pass
+
+# --- Read multi-line until blank ---
+lines = []
+while (l := input()) != "": lines.append(l)
+
+# --- Read all stdin (EOF) ---
+import sys
+data = sys.stdin.read().splitlines()
+
+# --- Hidden password ---
+import getpass
+pw = getpass.getpass("Password: ")
+
+# --- ANSI colors ---
+RED, GREEN, RESET = "\033[91m", "\033[92m", "\033[0m"
+print(f"{RED}Error!{RESET}")
+
+# --- rich colors ---
+from rich import print as rprint
+rprint("[bold red]Error![/bold red]")
+
+# --- click CLI ---
+import click
+@click.command()
+@click.option("--name", prompt="Your name")
+def hello(name): click.echo(f"Hello, {name}!")
+
+# --- InquirerPy select menu ---
+from InquirerPy import inquirer
+ans = inquirer.select(message="Choose:", choices=["A", "B", "C"]).execute()
+
+# Quick pick: input()=simple | argparse=flags | click=fancy CLI |
+# InquirerPy/questionary=arrow menus | tqdm=bars | rich=colors | getpass=hidden
+
+# ─────────────────────────────────────────────────────────────
 # 1. ESSENTIAL IMPORTS
 # ─────────────────────────────────────────────────────────────
 import numpy as np                      # Numerical computing
