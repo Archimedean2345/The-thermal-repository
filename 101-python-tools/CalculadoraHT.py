@@ -6,7 +6,7 @@
 #       b. atmosfera - solidoNucleo
 #       c. atmosfera - anillo sin contacto con sólidos
 
-# Inputs - menu interactivo 
+# Inputs - menu interactivo "!"
 
 def atmos_solido_fluido():
     print("Introduzca las variables:")
