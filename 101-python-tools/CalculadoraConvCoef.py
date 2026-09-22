@@ -15,9 +15,9 @@
 
 import math
 
-
 # ---------------------------------------------------
 # Método 1: Correlación de tubo liso (Dittus-Boelter)
+# No se utilizará este método 
 def reynolds(v, Di, rho, mu):
     """
     Numero de Reynolds.
@@ -28,7 +28,6 @@ def reynolds(v, Di, rho, mu):
     """
     return (v * Di * rho) / mu
 
-
 def prandtl(Cp, mu, k):
     """
     Numero de Prandtl.
@@ -37,7 +36,6 @@ def prandtl(Cp, mu, k):
     k  : conductividad termica del fluido [W/(m*K)]
     """
     return (Cp * mu) / k
-
 
 def h_tubo_liso(v, Di, rho, mu, Cp, k, validar_rango=True):
     """
