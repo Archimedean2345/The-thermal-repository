@@ -17,7 +17,8 @@ import math
 
 # ---------------------------------------------------
 # Método 1: Correlación de tubo liso (Dittus-Boelter)
-# No se utilizará este método 
+# No se utilizará este método por practicidad
+
 def reynolds(v, Di, rho, mu):
     """
     Numero de Reynolds.
@@ -70,11 +71,9 @@ def mass_velocity(w, S):
     """
     return w / S
 
-
 def area_transversal(Di):
     """Area de seccion transversal circular a partir del diametro interno [m]."""
     return (math.pi / 4) * (Di ** 2)
-
 
 def h_motor_cohete(Cp, w, Di, L, unidades="SI"):
     """
@@ -89,10 +88,7 @@ def h_motor_cohete(Cp, w, Di, L, unidades="SI"):
         unidades : "SI" (C = 3.075) o "ingles" (C = 0.024)
 
     Nota: en el ejemplo de Nakka, Cp se usa en J/g-K (no J/kg-K) para que las
-    unidades resultantes de h sean W/m^2-K con C = 3.075. Respetamos esa
-    convencion tal como aparece en el documento fuente.
-
-    Retorna un dict con h, G y S.
+    unidades resultantes de h sean W/m^2-K con C = 3.075. 
     """
     if unidades == "SI":
         C = 3.075
