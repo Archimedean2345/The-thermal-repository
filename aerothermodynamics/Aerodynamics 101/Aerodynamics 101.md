@@ -8,5 +8,5 @@ Hay una diferencia aprox. del 2% bajo las siguientes condiciones:
 V= 10 m/s   Sref= 1m^2  rho= 1.965 kg/m^3
 Perfil cuadrangular Cd= 0.309
 Perfil circular Cd= 0.303
-!(v01_10m-sec_perfilCircular.png)
-!(v01_10m-sec_perfilCuadrangular.png)
+![imagen 1](v01_10m-sec_perfilCircular.png)
+![imagen 2](v01_10m-sec_perfilCuadrangular.png)
