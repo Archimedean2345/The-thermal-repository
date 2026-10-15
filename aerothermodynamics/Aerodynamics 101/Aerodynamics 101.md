@@ -1,5 +1,5 @@
 # Aerodynamics 101
-Primera versión: octubre 14, 2026
+Primera versión: octubre 14, 2026  
 Ultima actualización: octubre 14, 2026
 
 Comparativa cuerpo circular vs cuadrangular (poligonal)
